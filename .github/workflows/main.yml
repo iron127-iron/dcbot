@@ -16,18 +16,19 @@ jobs:
         with:
           node-version: 18
 
-      # ✔ 改掉 npm ci（避免沒 lockfile 爆炸）
+      # 安裝依賴
       - name: Install dependencies
         run: npm install
 
-      # ✔ 強制用 npx（避免 vite not found）
+      # 建立前端
       - name: Build Vite
         run: npx vite build
 
-      # ✔ Electron 打包
+      # 打包 Electron（重點：不發佈）
       - name: Package Electron
-        run: npx electron-builder
+        run: npx electron-builder --publish never
 
+      # 上傳 EXE
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
