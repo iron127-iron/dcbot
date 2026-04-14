@@ -1,4 +1,4 @@
-name: Build Electron
+name: Build Electron App
 
 on:
   push:
@@ -16,17 +16,20 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install
-        run: npm install
+      - name: Install dependencies
+        run: npm install --include=dev
 
-      - name: Build
-        run: npm run build
+      - name: Check vite exists
+        run: npx vite --version
 
-      - name: Package
+      - name: Build Vite
+        run: npx vite build
+
+      - name: Package Electron
         run: npx electron-builder
 
-      - name: Upload
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app
+          name: discord-bot-studio
           path: dist/
