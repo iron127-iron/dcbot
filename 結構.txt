@@ -1,0 +1,13 @@
+discord-bot-studio/
+├── .github/workflows/build.yml
+├── package.json
+├── electron.js
+├── preload.js
+├── start.bat
+├── vite.config.js
+├── index.html
+├── /src
+│   ├── main.jsx
+│   ├── App.jsx
+│   ├── engine.js   ← ⭐ 邏輯引擎
+│   ├── variables.js← ⭐ 變數系統
