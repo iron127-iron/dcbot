@@ -1,10 +1,14 @@
 @echo off
 cd /d %~dp0
-cls
 
-echo ==============================
-echo Discord Bot Studio Starting...
-echo ==============================
+echo =====================
+echo Installing deps...
+echo =====================
 
 npm install
+
+echo =====================
+echo Starting Dev Server
+echo =====================
+
 npm run dev
