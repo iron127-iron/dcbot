@@ -17,12 +17,9 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install --include=dev
+        run: npm ci
 
-      - name: Check vite exists
-        run: npx vite --version
-
-      - name: Build Vite
+      - name: Build frontend
         run: npx vite build
 
       - name: Package Electron
